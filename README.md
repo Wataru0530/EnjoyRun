@@ -5,27 +5,22 @@
 
 | Column     | Type        | Option                    |
 | ---------- | ----------- | ------------------------- |
-| email      | string      | null: false, unique: true |
+| nickname   | string      | null: false               |
 | encrypted  | string      | null: false               |
-| name       | string      | null: false               |
-| profile    | text        | null: false               |
-| occupation | text        | null: false               |
-| position   | text        | null: false               |
 
 
 ## Association
 
-- has_many :prototypes
+- has_many :posts
 - has_many :comments
 
 
-## prototypesテーブル
+## postsテーブル
 
 
 | Column     | Type         | Option                         |
 | ---------- | ------------ | ------------------------------ |
 | title      | string       | null: false                    |
-| catch_copy | text         | null: false                    |
 | concept    | text         | null: false                    |
 | user       | references   | null: false, foreign_key: true |
 
@@ -41,12 +36,13 @@
 
 | Column     | Type         | Option                         |
 | ---------- | ------------ | ------------------------------ |
-| content    | text         | null: false                    |
-| prototype  | references   | null: false, foreign_key: true |
+| text       | text         | null: false                    |
 | user       | references   | null: false, foreign_key: true |
 
 
 ## Association
 
 - belongs_to :user
-- belongs_to :prototype
+- belongs_to :post
+
+ここから、グループ機能の追加や、ユーザー検索機能などを追加していく予定です。
